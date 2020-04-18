@@ -25,6 +25,8 @@ args = parser.parse_args()
 
 if args.dataset == 'ljspeech':
     from datasets.lj_speech import vocab, LJSpeech as SpeechDataset
+elif args.dataset == 'emovdb':
+    from datasets.emovdb import vocab, Emovdb as SpeechDataset
 else:
     from datasets.mb_speech import vocab, MBSpeech as SpeechDataset
 
