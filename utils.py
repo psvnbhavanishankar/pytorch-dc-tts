@@ -13,6 +13,8 @@ from skimage.io import imsave
 
 def get_last_checkpoint_file_name(logdir):
     """Returns the last checkpoint file name in the given log dir path."""
+    print('Checking latest checkpoints')
+    print(os.path.join(logdir, '*.pth'))
     checkpoints = glob.glob(os.path.join(logdir, '*.pth'))
     checkpoints.sort()
     if len(checkpoints) == 0:
