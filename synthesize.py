@@ -13,7 +13,7 @@ import torch
 from models import Text2Mel, SSRN
 from hparams import HParams as hp
 from audio import save_to_wav
-from utils import get_last_checkpoint_file_name, load_checkpoint_test, save_to_png
+from utils import get_last_checkpoint_file_name, load_checkpoint_test, save_to_png, load_checkpoint
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("--dataset", required=True, choices=['ljspeech', 'mbspeech', 'emovdb'], help='dataset name')
@@ -91,7 +91,7 @@ last_checkpoint_file_name = get_last_checkpoint_file_name(os.path.join(hp.logdir
 # last_checkpoint_file_name = 'logdir/%s-ssrn/step-005K.pth' % args.dataset
 if last_checkpoint_file_name:
     print("loading ssrn checkpoint '%s'..." % last_checkpoint_file_name)
-    load_checkpoint_test(last_checkpoint_file_name, ssrn, None)
+    load_checkpoint(last_checkpoint_file_name, ssrn, None)
 else:
     print("ssrn not exits")
     sys.exit(1)
