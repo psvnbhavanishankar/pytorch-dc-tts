@@ -81,7 +81,7 @@ text2mel = Text2Mel(vocab).eval()
 last_checkpoint_file_name = '../logdir/%s-text2mel/step-300K.pth' % args.dataset
 if last_checkpoint_file_name:
     print("loading text2mel checkpoint '%s'..." % last_checkpoint_file_name)
-    load_checkpoint_test(last_checkpoint_file_name, text2mel, None)
+    load_checkpoint(last_checkpoint_file_name, text2mel, None)
 else:
     print("text2mel not exits")
     sys.exit(1)
