@@ -22,20 +22,20 @@ def get_last_checkpoint_file_name(logdir):
     return checkpoints[-1]
 
 
-# def load_checkpoint(checkpoint_file_name, model, optimizer):
-#     """Loads the checkpoint into the given model and optimizer."""
-#     print(checkpoint_file_name)
-#     checkpoint = torch.load(checkpoint_file_name)
-#     print(checkpoint)
-#     model.load_state_dict(checkpoint['state_dict'])
-#     model.float()
-#     if optimizer is not None:
-#         optimizer.load_state_dict(checkpoint['optimizer'])
-#     start_epoch = checkpoint.get('epoch', 0)
-#     global_step = checkpoint.get('global_step', 0)
-#     del checkpoint
-#     print("loaded checkpoint epoch=%d step=%d" % (start_epoch, global_step))
-#     return start_epoch, global_step
+def load_checkpoint_test(checkpoint_file_name, model, optimizer):
+    """Loads the checkpoint into the given model and optimizer."""
+    print(checkpoint_file_name)
+    checkpoint = torch.load(checkpoint_file_name)
+    print(checkpoint)
+    model.load_state_dict(checkpoint['state_dict'])
+    model.float()
+    if optimizer is not None:
+        optimizer.load_state_dict(checkpoint['optimizer'])
+    start_epoch = checkpoint.get('epoch', 0)
+    global_step = checkpoint.get('global_step', 0)
+    del checkpoint
+    print("loaded checkpoint epoch=%d step=%d" % (start_epoch, global_step))
+    return start_epoch, global_step
 
 def load_checkpoint(checkpoint_file_name, model, optimizer):
     """Loads the checkpoint into the given model and optimizer."""
@@ -51,6 +51,7 @@ def load_checkpoint(checkpoint_file_name, model, optimizer):
     del checkpoint
     print("loaded checkpoint epoch=%d step=%d" % (start_epoch, global_step))
     return start_epoch, global_step
+
 
 
 def save_checkpoint(logdir, epoch, global_step, model, optimizer):
