@@ -4,6 +4,5 @@ __pycache__
 .ipynb_checkpoints
 *.ipynb
 logdir/
-samples
 *.npy
 *.tar.bz2
