@@ -45,7 +45,7 @@ if args.dataset == 'ljspeech':
         "The girl at the booth sold fifty bonds."
     ]
 elif args.dataset == 'emovdb':
-    from datasets.lj_speech import vocab, get_test_data
+    from datasets.emovdb import vocab, get_test_data
 
     SENTENCES = [
         "The birch canoe slid on the smooth planks.",
@@ -78,7 +78,7 @@ torch.set_grad_enabled(False)
 
 text2mel = Text2Mel(vocab).eval()
 # last_checkpoint_file_name = get_last_checkpoint_file_name(os.path.join(hp.logdir, '%s-text2mel' % args.dataset))
-last_checkpoint_file_name = '../logdir/%s-text2mel/step-085K.pth' % args.dataset
+last_checkpoint_file_name = '../logdir/%s-text2mel/step-300K.pth' % args.dataset
 if last_checkpoint_file_name:
     print("loading text2mel checkpoint '%s'..." % last_checkpoint_file_name)
     load_checkpoint_test(last_checkpoint_file_name, text2mel, None)
@@ -120,7 +120,7 @@ for i in range(len(SENTENCES)):
     A = A.cpu().detach().numpy()
     Z = Z.cpu().detach().numpy()
 
-    save_to_png('samples/%d-att.png' % (i + 1), A[0, :, :])
-    save_to_png('samples/%d-mel.png' % (i + 1), Y[0, :, :])
-    save_to_png('samples/%d-mag.png' % (i + 1), Z[0, :, :])
-    save_to_wav(Z[0, :, :].T, 'samples/%d-wav.wav' % (i + 1))
+    save_to_png('samples2/%d-att.png' % (i + 1), A[0, :, :])
+    save_to_png('samples2/%d-mel.png' % (i + 1), Y[0, :, :])
+    save_to_png('samples2/%d-mag.png' % (i + 1), Z[0, :, :])
+    save_to_wav(Z[0, :, :].T, 'samples2/%d-wav.wav' % (i + 1))
