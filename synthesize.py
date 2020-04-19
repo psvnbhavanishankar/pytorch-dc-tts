@@ -16,7 +16,7 @@ from audio import save_to_wav
 from utils import get_last_checkpoint_file_name, load_checkpoint, save_to_png
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-parser.add_argument("--dataset", required=True, choices=['ljspeech', 'mbspeech'], help='dataset name')
+parser.add_argument("--dataset", required=True, choices=['ljspeech', 'mbspeech', 'emovdb'], help='dataset name')
 args = parser.parse_args()
 
 if args.dataset == 'ljspeech':
@@ -44,6 +44,20 @@ if args.dataset == 'ljspeech':
         "The salt breeze came across from the sea.",
         "The girl at the booth sold fifty bonds."
     ]
+elif args.dataset == 'emovdb':
+    from datasets.lj_speech import vocab, get_test_data
+
+    SENTENCES = [
+        "The birch canoe slid on the smooth planks.",
+        "Glue the sheet to the dark blue background.",
+        "To my surprise he began to show actual enthusiasm in my favor.",
+        "Will we ever forget it.",
+        "Hi, this is the speech recognition and understanding course.",
+        "I wrote this sentence myself to test whether it works."
+    ]
+
+
+
 else:
     from datasets.mb_speech import vocab, get_test_data
 
@@ -63,8 +77,8 @@ else:
 torch.set_grad_enabled(False)
 
 text2mel = Text2Mel(vocab).eval()
-last_checkpoint_file_name = get_last_checkpoint_file_name(os.path.join(hp.logdir, '%s-text2mel' % args.dataset))
-# last_checkpoint_file_name = 'logdir/%s-text2mel/step-020K.pth' % args.dataset
+# last_checkpoint_file_name = get_last_checkpoint_file_name(os.path.join(hp.logdir, '%s-text2mel' % args.dataset))
+last_checkpoint_file_name = '../logdir/%s-text2mel/step-085K.pth' % args.dataset
 if last_checkpoint_file_name:
     print("loading text2mel checkpoint '%s'..." % last_checkpoint_file_name)
     load_checkpoint(last_checkpoint_file_name, text2mel, None)
