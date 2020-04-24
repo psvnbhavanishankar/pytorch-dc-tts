@@ -7,7 +7,7 @@ class HParams:
 
     disable_progress_bar = False  # set True if you don't want the progress bar in the console
 
-    logdir = "../logdir/"  # log dir where the checkpoints and tensorboard files are saved
+    logdir = "../logdir_anger/"  # log dir where the checkpoints and tensorboard files are saved
 
     # audio.py options, these values are from https://github.com/Kyubyong/dc_tts/blob/master/hyperparams.py
     reduction_rate = 4  # melspectrogram reduction rate, don't change because SSRN is using this rate
@@ -34,7 +34,7 @@ class HParams:
 
     # Text2Mel network options
     text2mel_lr = 0.005  # learning rate
-    text2mel_max_iteration = 100000  # max train step = 300k, fine tuning for 100k steps
+    text2mel_max_iteration = 300000  # max train step = 300k, fine tuning for 100k steps
     text2mel_weight_init = 'none'  # 'kaiming', 'xavier' or 'none'
     text2mel_normalization = 'layer'  # 'layer', 'weight' or 'none'
     text2mel_basic_block = 'gated_conv'  # 'highway', 'gated_conv' or 'residual'
