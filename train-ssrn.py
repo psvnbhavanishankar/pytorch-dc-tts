@@ -49,8 +49,7 @@ last_checkpoint_file_name = get_last_checkpoint_file_name(logger.logdir)
 if last_checkpoint_file_name:
     print("loading the last checkpoint: %s" % last_checkpoint_file_name)
     start_epoch, global_step = load_checkpoint(last_checkpoint_file_name, ssrn, optimizer)
-else:
-    print('Starting training from scratch...')
+
 
 
 def get_lr():

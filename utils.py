@@ -18,6 +18,7 @@ def get_last_checkpoint_file_name(logdir):
     checkpoints = glob.glob(os.path.join(logdir, '*.pth'))
     checkpoints.sort()
     if len(checkpoints) == 0:
+        print('Training from scratch...')
         return None
     return checkpoints[-1]
 
