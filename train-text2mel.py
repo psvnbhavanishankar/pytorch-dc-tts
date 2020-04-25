@@ -16,7 +16,7 @@ import torch.nn.functional as F
 from models import Text2Mel
 from hparams import HParams as hp
 from logger import Logger
-from utils import get_last_checkpoint_file_name, load_checkpoint, save_checkpoint
+from utils import get_last_checkpoint_file_name, load_checkpoint, save_checkpoint, load_checkpoint_test
 from datasets.data_loader import Text2MelDataLoader
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -53,7 +53,7 @@ logger = Logger(args.dataset, 'text2mel')
 last_checkpoint_file_name = get_last_checkpoint_file_name(logger.logdir)
 if last_checkpoint_file_name:
     print("loading the last checkpoint: %s" % last_checkpoint_file_name)
-    start_epoch, global_step = load_checkpoint(last_checkpoint_file_name, text2mel, None)
+    start_epoch, global_step = load_checkpoint_test(last_checkpoint_file_name, text2mel, None)
 
 optimizer = torch.optim.Adam(text2mel.parameters(), lr=hp.text2mel_lr)
 
