@@ -53,7 +53,7 @@ logger = Logger(args.dataset, 'text2mel')
 last_checkpoint_file_name = get_last_checkpoint_file_name(logger.logdir)
 if last_checkpoint_file_name:
     print("loading the last checkpoint: %s" % last_checkpoint_file_name)
-    start_epoch, global_step = load_checkpoint_test(last_checkpoint_file_name, text2mel, None)
+    start_epoch, global_step = load_checkpoint(last_checkpoint_file_name, text2mel, None)
 
 optimizer = torch.optim.Adam(text2mel.parameters(), lr=hp.text2mel_lr)
 
