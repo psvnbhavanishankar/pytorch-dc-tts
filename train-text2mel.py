@@ -169,3 +169,4 @@ while True:
     if global_step >= hp.text2mel_max_iteration:
         print("max step %d (current step %d) reached, exiting..." % (hp.text2mel_max_iteration, global_step))
         sys.exit(0)
+

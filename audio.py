@@ -34,7 +34,7 @@ def spectrogram2wav(mag):
     wav = signal.lfilter([1], [1, -hp.preemphasis], wav)
 
     # trim
-    wav, _ = librosa.effects.trim(wav)
+    wav, _ = librosa.effects.trim(wav, top_db=20)
 
     return wav.astype(np.float32)
 
@@ -74,7 +74,7 @@ def get_spectrograms(fpath):
     y, sr = librosa.load(fpath, sr=hp.sr)
 
     # Trimming
-    y, _ = librosa.effects.trim(y)
+    y, _ = librosa.effects.trim(y, top_db=20)
 
     # Preemphasis
     y = np.append(y[0], y[1:] - hp.preemphasis * y[:-1])
@@ -136,3 +136,4 @@ def preprocess(dataset_path, speech_dataset):
 
         np.save(os.path.join(mels_path, '%s.npy' % fname), mel)
         np.save(os.path.join(mags_path, '%s.npy' % fname), mag)
+

@@ -52,8 +52,9 @@ class Emovdb(Dataset):
     def __init__(self, keys, dir_name='/home/brihi16142/processed_emovdb_anger'):
         self.keys = keys
         self.path = os.path.join(os.path.dirname(os.path.realpath(__file__)), dir_name)
-        self.fnames, self.text_lengths, self.texts = read_metadata(os.path.join(self.path, 'transcript.csv'))
-        # preprocess(dir_name, self)
+        self.fnames, self.text_lengths, self.texts = read_metadata(os.path.join(self.path, 'transcript_jenie.csv'))
+        preprocess(dir_name, self)
+        print('Generated mels and mags')
 
     def slice(self, start, end):
         self.fnames = self.fnames[start:end]
@@ -78,3 +79,4 @@ class Emovdb(Dataset):
         if 'mag_gates' in self.keys:
             data['mag_gates'] = np.ones(data['mags'].shape[0], dtype=np.int)  # TODO: because pre processing!
         return data
+
