@@ -53,7 +53,7 @@ class Emovdb(Dataset):
         self.keys = keys
         self.path = os.path.join(os.path.dirname(os.path.realpath(__file__)), dir_name)
         self.fnames, self.text_lengths, self.texts = read_metadata(os.path.join(self.path, 'transcript_jenie.csv'))
-        preprocess(dir_name, self)
+        #preprocess(dir_name, self)
         print('Generated mels and mags')
 
     def slice(self, start, end):
