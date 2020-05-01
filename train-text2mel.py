@@ -110,7 +110,7 @@ def train(train_epoch, phase='train'):
         W = W.cuda()
         gates = gates.cuda()
 
-        Y_logit, Y, A = text2mel(L, S)
+        Y_logit, Y, A = text2mel(L, S, monotonic_attention=True)
 
         l1_loss = F.l1_loss(Y, S_shifted)
         masks = gates.reshape(B, 1, T).float()
