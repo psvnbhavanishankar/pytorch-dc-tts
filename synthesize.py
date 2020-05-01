@@ -111,8 +111,8 @@ for i in range(len(SENTENCES)):
         Y = torch.cat((zeros, Y_t), -1)
         _, attention = torch.max(A[0, :, -1], 0)
         attention = attention.item()
-        if L[0, attention] == vocab.index('E'):  # EOS
-            break
+        # if L[0, attention] == vocab.index('E'):  # EOS
+        #     break
 
     _, Z = ssrn(Y)
 
@@ -120,7 +120,7 @@ for i in range(len(SENTENCES)):
     A = A.cpu().detach().numpy()
     Z = Z.cpu().detach().numpy()
 
-    save_to_png('samples2/%d-att.png' % (i + 1), A[0, :, :])
-    save_to_png('samples2/%d-mel.png' % (i + 1), Y[0, :, :])
-    save_to_png('samples2/%d-mag.png' % (i + 1), Z[0, :, :])
-    save_to_wav(Z[0, :, :].T, 'samples2/%d-wav.wav' % (i + 1))
+    save_to_png('samples_rm_1/%d-att.png' % (i + 1), A[0, :, :])
+    save_to_png('samples_rm_1/%d-mel.png' % (i + 1), Y[0, :, :])
+    save_to_png('samples_rm_1/%d-mag.png' % (i + 1), Z[0, :, :])
+    save_to_wav(Z[0, :, :].T, 'samples_rm_1/%d-wav.wav' % (i + 1))
