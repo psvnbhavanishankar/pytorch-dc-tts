@@ -49,11 +49,11 @@ def get_test_data(sentences, max_n):
 
 
 class Emovdb(Dataset):
-    def __init__(self, keys, dir_name='/home/brihi16142/processed_emovdb_anger'):
+    def __init__(self, keys, dir_name='/home/brihi16142/work2/processed_emovdb_amused'):
         self.keys = keys
         self.path = os.path.join(os.path.dirname(os.path.realpath(__file__)), dir_name)
         self.fnames, self.text_lengths, self.texts = read_metadata(os.path.join(self.path, 'transcript_jenie.csv'))
-        #preprocess(dir_name, self)
+        preprocess(dir_name, self)
         print('Generated mels and mags')
 
     def slice(self, start, end):
