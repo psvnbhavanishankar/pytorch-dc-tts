@@ -78,7 +78,7 @@ torch.set_grad_enabled(False)
 
 text2mel = Text2Mel(vocab).eval()
 # last_checkpoint_file_name = get_last_checkpoint_file_name(os.path.join(hp.logdir, '%s-text2mel' % args.dataset))
-last_checkpoint_file_name = '../logdir_amused/%s-text2mel/step-001K.pth' % args.dataset
+last_checkpoint_file_name = '../logdir_disgust/%s-text2mel/step-003K.pth' % args.dataset
 if last_checkpoint_file_name:
     print("loading text2mel checkpoint '%s'..." % last_checkpoint_file_name)
     load_checkpoint_test(last_checkpoint_file_name, text2mel, None)
@@ -120,7 +120,7 @@ for i in range(len(SENTENCES)):
     A = A.cpu().detach().numpy()
     Z = Z.cpu().detach().numpy()
 
-    save_to_png('samples/samples_jenie_amused_1k/%d-att.png' % (i + 1), A[0, :, :])
-    save_to_png('samples/samples_jenie_amused_1k/%d-mel.png' % (i + 1), Y[0, :, :])
-    save_to_png('samples/samples_jenie_amused_1k/%d-mag.png' % (i + 1), Z[0, :, :])
-    save_to_wav(Z[0, :, :].T, 'samples/samples_jenie_amused_1k/%d-wav.wav' % (i + 1))
+    save_to_png('samples/samples_jenie_disgust_3k/%d-att.png' % (i + 1), A[0, :, :])
+    save_to_png('samples/samples_jenie_disgust_3k/%d-mel.png' % (i + 1), Y[0, :, :])
+    save_to_png('samples/samples_jenie_disgust_3k/%d-mag.png' % (i + 1), Z[0, :, :])
+    save_to_wav(Z[0, :, :].T, 'samples/samples_jenie_disgust_3k/%d-wav.wav' % (i + 1))
