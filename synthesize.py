@@ -10,7 +10,7 @@ from tqdm import *
 import numpy as np
 import torch
 
-from models_dctts import Text2Mel, SSRN
+from models import Text2Mel, SSRN
 from hyperparams import HParams as hp
 from audio import save_to_wav
 from utils import get_last_checkpoint_file_name, load_checkpoint_test, save_to_png, load_checkpoint

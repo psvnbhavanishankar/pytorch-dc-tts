@@ -11,7 +11,7 @@ import torch
 import torch.nn.functional as F
 
 # project imports
-from models_dctts import SSRN
+from models import SSRN
 from hyperparams import HParams as hp
 from logger import Logger
 from utils import get_last_checkpoint_file_name, load_checkpoint, save_checkpoint
