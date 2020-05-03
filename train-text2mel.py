@@ -13,7 +13,7 @@ import torch
 import torch.nn.functional as F
 
 # project imports
-from models import Text2Mel
+from models_dctts import Text2Mel
 from hyperparams import HParams as hp
 from logger import Logger
 from utils import get_last_checkpoint_file_name, load_checkpoint, save_checkpoint, load_checkpoint_test
