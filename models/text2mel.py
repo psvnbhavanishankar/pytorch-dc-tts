@@ -14,7 +14,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from hparams import HParams as hp
+from hyperparams import HParams as hp
 from layers import E, C, HighwayBlock, GatedConvBlock, ResidualBlock
 
 

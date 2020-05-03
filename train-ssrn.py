@@ -12,7 +12,7 @@ import torch.nn.functional as F
 
 # project imports
 from models import SSRN
-from hparams import HParams as hp
+from hyperparams import HParams as hp
 from logger import Logger
 from utils import get_last_checkpoint_file_name, load_checkpoint, save_checkpoint
 from datasets.data_loader import SSRNDataLoader

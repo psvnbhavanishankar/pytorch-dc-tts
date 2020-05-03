@@ -14,7 +14,7 @@ import torch.nn.functional as F
 
 # project imports
 from models import Text2Mel
-from hparams import HParams as hp
+from hyperparams import HParams as hp
 from logger import Logger
 from utils import get_last_checkpoint_file_name, load_checkpoint, save_checkpoint, load_checkpoint_test
 from datasets.data_loader import Text2MelDataLoader

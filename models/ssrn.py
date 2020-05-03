@@ -11,7 +11,7 @@ __all__ = ['SSRN']
 import torch.nn as nn
 import torch.nn.functional as F
 
-from hparams import HParams as hp
+from hyperparams import HParams as hp
 from layers import D, C, HighwayBlock, GatedConvBlock, ResidualBlock
 
 

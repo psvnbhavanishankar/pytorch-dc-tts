@@ -14,7 +14,7 @@ import fnmatch
 import librosa
 import pandas as pd
 
-from hparams import HParams as hp
+from hyperparams import HParams as hp
 from zipfile import ZipFile
 from audio import preprocess
 from utils import download_file

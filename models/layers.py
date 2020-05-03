@@ -4,7 +4,7 @@ __all__ = ['E', 'D', 'C', 'HighwayBlock', 'GatedConvBlock', 'ResidualBlock']
 import torch.nn as nn
 import torch.nn.functional as F
 
-from hparams import HParams as hp
+from hyperparams import HParams as hp
 
 
 class LayerNorm(nn.LayerNorm):

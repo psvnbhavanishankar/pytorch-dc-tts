@@ -8,7 +8,7 @@ import numpy as np
 
 from tqdm import tqdm
 from scipy import signal
-from hparams import HParams as hp
+from hyperparams import HParams as hp
 
 
 def spectrogram2wav(mag):
