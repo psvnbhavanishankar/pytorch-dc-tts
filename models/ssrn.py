@@ -12,7 +12,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from hparams import HParams as hp
-from .layers import D, C, HighwayBlock, GatedConvBlock, ResidualBlock
+from layers import D, C, HighwayBlock, GatedConvBlock, ResidualBlock
 
 
 def Conv(in_channels, out_channels, kernel_size, dilation, nonlinearity='linear'):
